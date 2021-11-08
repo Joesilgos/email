@@ -87,7 +87,7 @@ class NewsEmail:
         self.bodyEmail.attach(MIMEText(content, 'html'))
     def fileAttach(self, filename):
         # abri o arquivo
-        attach = open("/media/joesilgos/PROJETOS8/services/desafio/file.txt", 'rb')
+        attach = open(filename, 'rb')
         
         # carrega o documento de anexo
         self.baseEncode.set_payload(attach.read())
@@ -107,7 +107,8 @@ class NewsEmail:
         self.server.login(email, password)
 
         self.mimeContent()
-
+        
+        #caminho do arquivo a ser anexado
         self.fileAttach("/media/joesilgos/PROJETOS8/services/desafio/file.txt")
         
 
@@ -117,4 +118,4 @@ class NewsEmail:
         self.server.quit()
 
 email = NewsEmail()
-email.send("joesilgos@gmail.com", "Developer12345")
+email.send("email@gmail.com", "Senha")
